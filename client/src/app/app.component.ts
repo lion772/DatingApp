@@ -8,12 +8,15 @@ import { ConfigService } from './config.service';
 })
 export class AppComponent implements OnInit {
   title = 'Dating App';
-  users: any[];
+  users: any = [];
 
   constructor(private configService: ConfigService) {}
 
   ngOnInit() {
-    this.users = this.configService.getUsers();
     this.configService.getUsersFromServer();
+    this.configService.getUsersUpdatedListener().subscribe((updatedUsers) => {
+      this.users = updatedUsers;
+      console.log(this.users);
+    });
   }
 }

@@ -8,7 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ConfigService {
-  private users: any[] = [];
+  private users: any = [];
   private usersUpdated = new Subject<any[]>();
   constructor(private http: HttpClient) {}
 
@@ -17,23 +17,28 @@ export class ConfigService {
   }
 
   getUsersFromServer() {
-    this.http
-      .get<{ user: any[] }>('https://localhost:5001/api/users')
-      .pipe(
+    return (
+      this.http
+        .get('https://localhost:5001/api/users')
+        /*.pipe(
         map((dataRetrieved) => {
-          return dataRetrieved.user.map((user) => {
+          return dataRetrieved.users.map((user) => {
             return {
               id: user._id,
               username: user.username,
             };
           });
         })
-      )
-      .subscribe((users) => {
-        console.log(users);
-        this.users = users;
-        this.usersUpdated.next([...users]);
-      });
+      )*/
+        .subscribe(
+          (usersFiltered) => {
+            console.log(usersFiltered);
+            this.users = usersFiltered;
+            this.usersUpdated.next([...this.users]);
+          },
+          (err) => console.log(err)
+        )
+    );
   }
 
   getUsersUpdatedListener() {
