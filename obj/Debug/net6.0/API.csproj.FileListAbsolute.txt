@@ -53,3 +53,8 @@
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/runtimes/win-x86/native/e_sqlite3.dll
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Humanizer.dll
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/angular.json
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/package.json
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/tsconfig.app.json
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/tsconfig.json
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/tsconfig.spec.json
