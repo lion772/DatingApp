@@ -58,3 +58,10 @@
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/tsconfig.app.json
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/tsconfig.json
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/tsconfig.spec.json
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/package-lock.json
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/System.Web.Cors.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/System.Net.Http.Formatting.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/System.Web.Http.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/System.Web.Http.Cors.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Newtonsoft.Json.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll
