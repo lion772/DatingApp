@@ -1,6 +1,8 @@
 Step by Step tutorial on how to implement an Entity Framework in .NET (No Server SQL):
 
-1) Adding DbContext
+1) Install NuGet Gallery and install "Microsoft.EntityFrameworkCore.Sqlit"
+
+2) Adding DbContext and import "EntityFrameworkCore" by typing "using Microsoft.EntityFrameworkCore;"
     {
         public class DataContext : DbContext 
         {
@@ -15,7 +17,7 @@ Step by Step tutorial on how to implement an Entity Framework in .NET (No Server
         }
     }
 
-2) Creating Connection string in appsettings.Development.json and in Startup file:
+3) Creating Connection string in appsettings.Development.json and in Startup file:
 
     "ConnectionStrings": {
         "DefaultConnection": "Data source=datingapp.db"
@@ -41,11 +43,16 @@ Step by Step tutorial on how to implement an Entity Framework in .NET (No Server
 
         }    
 
-3) Installing Entity Framework Core Tools for the .NET Command-Line Interface via a command line:
+4) Installing Entity Framework Core Tools for the .NET Command-Line Interface via a command line:
     dotnet tool install --global dotnet-ef --version 7.0.0-rc.2.22472.11
 
 
-4) Create a Migration via the command line:
+5) Create a Migration via the command line:
     dotnet migrations add InitialCreate -o Data/Migrations
 
-5) Open NuGet Gallery and install "Microsoft.EntityFrameworkCore.Design".
+6) Open NuGet Gallery and install "Microsoft.EntityFrameworkCore.Design".
+
+7) Once the Migration is created, a Database update is required:
+    dotnet ef database update
+
+8) Upon installing SQLite extension, open the pallete and type "SQLite: Open Database".
