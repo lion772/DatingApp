@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
     this.configService.getUsersFromServer();
     this.configService.getUsersUpdatedListener().subscribe((updatedUsers) => {
       this.users = updatedUsers;
-      console.log(this.users);
     });
   }
 }

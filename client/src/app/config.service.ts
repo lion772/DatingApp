@@ -17,28 +17,13 @@ export class ConfigService {
   }
 
   getUsersFromServer() {
-    return (
-      this.http
-        .get('https://localhost:5001/api/users')
-        /*.pipe(
-        map((dataRetrieved) => {
-          return dataRetrieved.users.map((user) => {
-            return {
-              id: user._id,
-              username: user.username,
-            };
-          });
-        })
-      )*/
-        .subscribe(
-          (usersFiltered) => {
-            console.log(usersFiltered);
-            this.users = usersFiltered;
-            this.usersUpdated.next([...this.users]);
-          },
-          (err) => console.log(err)
-        )
-    );
+    return this.http.get('https://localhost:5001/api/users').subscribe({
+      next: (res) => {
+        this.users = res;
+        this.usersUpdated.next([...this.users]);
+      },
+      error: (err) => console.log(err),
+    });
   }
 
   getUsersUpdatedListener() {
