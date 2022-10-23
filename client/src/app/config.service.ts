@@ -9,7 +9,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class ConfigService {
   private users: any = [];
-  private usersUpdated = new Subject<any[]>();
+  private usersUpdated = new Subject<any>();
   constructor(private http: HttpClient) {}
 
   getUsers() {
