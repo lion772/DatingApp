@@ -56,3 +56,7 @@ Step by Step tutorial on how to implement an Entity Framework in .NET (No Server
     dotnet ef database update
 
 8) Upon installing SQLite extension, open the pallete and type "SQLite: Open Database".
+
+9) Whenever you want to add a new column to your table, "dotnet ef migrations add <name of the column you've created>"
+command must be entered in order to create a new migration and thereafter updated by typing "dotnet ef database update".
+ 
