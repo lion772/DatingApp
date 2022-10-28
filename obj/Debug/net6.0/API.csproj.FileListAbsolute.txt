@@ -59,3 +59,8 @@
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/tsconfig.json
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/tsconfig.spec.json
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/client/package-lock.json
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
