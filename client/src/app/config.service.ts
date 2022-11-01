@@ -19,6 +19,7 @@ export class ConfigService {
   getUsersFromServer() {
     return this.http.get('https://localhost:5001/api/users').subscribe({
       next: (res) => {
+        console.log(res);
         this.users = res;
         this.usersUpdated.next([...this.users]);
       },

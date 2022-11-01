@@ -1,5 +1,9 @@
 <app-nav-bar></app-nav-bar>
-<mat-card>
-  <div *ngFor="let user of users">{{ user.userName }}</div>
-</mat-card>
+
+<div class="container" style="margin-top: 8rem;">
+  <mat-card>
+    <div *ngFor="let user of users">{{ user.id }} - {{ user.userName }}</div>
+  </mat-card>
+</div>
+
 <router-outlet></router-outlet>
