@@ -14,9 +14,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './app-register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    NavBarComponent,
+    HomeComponent,
+    RegisterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
