@@ -2,7 +2,7 @@
   <div class="container">
     <a class="navbar-brand" href="#">Dating App</a>
 
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto" *ngIf="loggedIn">
       <li class="nav-item">
         <a class="nav-link" href="#">Matches</a>
       </li>
@@ -14,8 +14,10 @@
       </li>
     </ul>
 
-    <div class="dropdown">
-      <a class="dropdown-toggle text-light" dropdownToggle>Welcome user</a>
+    <div class="dropdown" *ngIf="loggedIn" dropdown>
+      <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle
+        >Welcome user</a
+      >
       <div class="dropdown-menu mt-3" *dropdownMenu>
         <a class="dropdown-item">Edit Profile</a>
         <div class="dropdown-divider"></div>
@@ -28,6 +30,7 @@
       class="form-inline mt-2 mt-md-0"
       (ngSubmit)="onSubmitHandler()"
       autocomplete="off"
+      *ngIf="!loggedIn"
     >
       <input
         name="username"

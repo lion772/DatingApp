@@ -16,17 +16,37 @@ export class NavBarComponent implements OnInit {
 
   constructor(private httpService: ConfigService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    /* this.httpService.isLoggedIn()
+      ? (this.loggedIn = true)
+      : (this.loggedIn = false);
+    console.log(this.loggedIn); */
+    this.getCurrentUser();
+  }
 
-  async onSubmitHandler() {
-    const data = await this.httpService.login(this.model).subscribe({
+  getCurrentUser() {
+    this.httpService.currentUser$.subscribe({
+      next: (user) => {
+        console.log(user);
+        this.loggedIn = !!user;
+      }, //transforms an obj into a boolean, where if it exists, it'll assign to true
+      error: (err: Error) => console.log(err.message),
+    });
+  }
+
+  onSubmitHandler() {
+    this.httpService.login(this.model).subscribe({
       next: (res) => {
         console.log(res);
+        this.loggedIn = true;
       },
       error: (err) => console.log(err),
     });
+  }
 
-    console.log(data && data['username']);
+  logout() {
+    this.loggedIn = false;
+    this.httpService.logout();
   }
 }
 
