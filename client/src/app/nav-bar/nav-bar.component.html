@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
     <a class="navbar-brand" href="#">Dating App</a>
-
-    <ul class="navbar-nav mr-auto" *ngIf="loggedIn">
+    <!-- configService.currentUser$ | async -> Async pipe to unsubscribe -->
+    <ul class="navbar-nav mr-auto" *ngIf="configService.currentUser$ | async">
       <li class="nav-item">
         <a class="nav-link" href="#">Matches</a>
       </li>
@@ -14,7 +14,7 @@
       </li>
     </ul>
 
-    <div class="dropdown" *ngIf="loggedIn" dropdown>
+    <div class="dropdown" *ngIf="configService.currentUser$ | async" dropdown>
       <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle
         >Welcome user</a
       >
@@ -30,7 +30,7 @@
       class="form-inline mt-2 mt-md-0"
       (ngSubmit)="onSubmitHandler()"
       autocomplete="off"
-      *ngIf="!loggedIn"
+      *ngIf="!(configService.currentUser$ | async)"
     >
       <input
         name="username"
