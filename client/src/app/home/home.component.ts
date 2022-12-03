@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   listenToCanceling() {
-    this.configService.cancelRegister$.subscribe({
+    this.configService.cancelRegister.subscribe({
       next: (res) => (this.registerMode = res),
       error: (err) => console.log(err),
     });

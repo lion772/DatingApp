@@ -14,7 +14,6 @@ interface IUser {
 export class ConfigService {
   baseUrl = 'https://localhost:5001/api';
   cancelRegister = new BehaviorSubject<boolean | null>(null);
-  cancelRegister$ = this.cancelRegister.asObservable();
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
   constructor(private http: HttpClient) {}

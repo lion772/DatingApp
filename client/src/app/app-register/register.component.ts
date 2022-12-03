@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
         this.toastr.success("You've successfully registered :)", 'It worked!');
       },
       error: (err) => {
-        console.log(err.error['errors']);
         if (typeof err.error === 'string') {
           this.toastr.error(err.error, 'An error occurred');
         } else {
