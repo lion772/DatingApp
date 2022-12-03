@@ -67,3 +67,5 @@
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
 /home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/package-lock.json
+/home/lion772/angular_net_project/DatingApp/API/bin/Debug/net6.0/package.json

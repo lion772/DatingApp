@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ConfigService } from '../config.service';
 
 @Component({
@@ -14,7 +15,10 @@ export class RegisterComponent implements OnInit {
     password: '',
   };
 
-  constructor(private configService: ConfigService) {}
+  constructor(
+    private configService: ConfigService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -23,8 +27,20 @@ export class RegisterComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.cancel();
+        this.toastr.success("You've successfully registered :)", 'It worked!');
       },
-      error: (err) => console.log(err),
+      error: (err) => {
+        console.log(err.error['errors']);
+        if (typeof err.error === 'string') {
+          this.toastr.error(err.error, 'An error occurred');
+        } else {
+          let errorList = [];
+          for (const key in err.error['errors']) {
+            errorList.push(err.error['errors'][key]);
+          }
+          this.toastr.error(...errorList);
+        }
+      },
       complete: () => console.log('registration complete!'),
     });
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfigService } from '../config.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,14 +14,21 @@ export class NavBarComponent implements OnInit {
     password: '',
   };
 
-  constructor(public configService: ConfigService, private router: Router) {}
+  constructor(
+    public configService: ConfigService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {}
 
   onSubmitHandler() {
     this.configService.login(this.model).subscribe({
-      next: () => this.router.navigateByUrl('/members'),
-      error: (err) => console.log(err),
+      next: () => {
+        this.router.navigateByUrl('/members');
+        this.toastr.success("You've successfully logged in :)", 'It worked!');
+      },
+      error: (err) => this.toastr.error(err.error, 'An error occurred'),
     });
   }
 
