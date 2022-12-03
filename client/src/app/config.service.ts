@@ -37,12 +37,12 @@ export class ConfigService {
 
   register(model: IUser) {
     return this.http.post<User>(`${this.baseUrl}/account/register`, model).pipe(
-      map((response: User) => {
-        if (response) {
-          localStorage.setItem('user', JSON.stringify(response));
-          this.setCurrentUser(response);
-          return response;
+      map((user) => {
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.setCurrentUser(user);
         }
+        return user;
       })
     );
   }
