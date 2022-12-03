@@ -8,6 +8,7 @@ import { ConfigService } from '../config.service';
 })
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
+
   model = {
     username: '',
     password: '',
@@ -18,19 +19,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   register() {
-    /* this.configService.register(this.model).subscribe(
-      (response) => {
-        console.log(response);
-        this.cancel();
-      },
-      (error) => {
-        console.log(error);
-      }
-    ); */
-
     this.configService.register(this.model).subscribe({
       next: (res) => {
         console.log(res);
+        this.cancel();
       },
       error: (err) => console.log(err),
       complete: () => console.log('registration complete!'),
@@ -38,6 +30,7 @@ export class RegisterComponent implements OnInit {
   }
 
   cancel() {
-    this.cancelRegister.emit(false);
+    //this.cancelRegister.emit(false);
+    this.configService.cancelRegister.next(false);
   }
 }

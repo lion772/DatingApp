@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../config.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-home',
@@ -6,17 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  registerMode = false;
+  registerMode: boolean = false;
+  users: any = [];
 
-  constructor() {}
+  constructor(private configService: ConfigService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.listenToCanceling();
+  }
 
   registerToggle() {
     this.registerMode = !this.registerMode;
   }
 
   cancelRegisterMode(event: boolean) {
-    this.registerMode = event;
+    //this.registerMode = event;
+  }
+
+  listenToCanceling() {
+    this.configService.cancelRegister$.subscribe({
+      next: (res) => (this.registerMode = res),
+      error: (err) => console.log(err),
+    });
   }
 }
