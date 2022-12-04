@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ConfigService } from './config.service';
+import { ConfigService } from './_services/config.service';
 import { User } from './models/user';
 
 @Component({

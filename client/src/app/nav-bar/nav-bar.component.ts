@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ConfigService } from '../config.service';
+import { ConfigService } from '../_services/config.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

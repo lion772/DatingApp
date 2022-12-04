@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">Dating App</a>
+    <a class="navbar-brand" routerLink="/"><h1>Dating App</h1></a>
     <!-- configService.currentUser$ | async -> Async pipe to unsubscribe -->
     <ul class="navbar-nav mr-auto" *ngIf="configService.currentUser$ | async">
       <li class="nav-item">
@@ -20,9 +20,13 @@
       </li>
     </ul>
 
-    <div class="dropdown" *ngIf="configService.currentUser$ | async" dropdown>
+    <div
+      class="dropdown"
+      *ngIf="configService.currentUser$ | async as user"
+      dropdown
+    >
       <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle
-        >Welcome user</a
+        >Welcome {{ user.username | titlecase }}</a
       >
       <div class="dropdown-menu mt-3" *dropdownMenu>
         <a class="dropdown-item">Edit Profile</a>
@@ -33,7 +37,6 @@
 
     <form
       #loginForm="ngForm"
-      class="form-inline mt-2 mt-md-0"
       (ngSubmit)="onSubmitHandler()"
       autocomplete="off"
       *ngIf="!(configService.currentUser$ | async)"
@@ -52,9 +55,7 @@
         type="password"
         placeholder="Password"
       />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-        Login
-      </button>
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
     </form>
   </div>
 </nav>

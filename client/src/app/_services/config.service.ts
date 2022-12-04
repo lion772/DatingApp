@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, map, Observable, Subject, throwError } from 'rxjs';
-import { User } from './models/user';
+import { User } from '../models/user';
 
 interface IUser {
   username: string;
@@ -14,6 +14,7 @@ interface IUser {
 export class ConfigService {
   baseUrl = 'https://localhost:5001/api';
   cancelRegister = new BehaviorSubject<boolean | null>(null);
+  cancelRegister$ = this.cancelRegister.asObservable();
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
   constructor(private http: HttpClient) {}

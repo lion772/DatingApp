@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { ConfigService } from '../config.service';
+import { ConfigService } from '../_services/config.service';
 
 @Component({
   selector: 'app-register',

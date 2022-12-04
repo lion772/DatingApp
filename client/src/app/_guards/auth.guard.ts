@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { map, Observable } from 'rxjs';
-import { ConfigService } from '../config.service';
+import { ConfigService } from '../_services/config.service';
 
 @Injectable({
   providedIn: 'root',
